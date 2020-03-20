@@ -1,42 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import StarWarsData from './StarWarsData';
-import { Badge } from 'reactstrap';
-import styled from 'styled-components';
-
-const fdiv = styled.div `
-padding: 10%;
-`
 
 const StarWarsCard = () => {
-    const [movie, setMovie] = useState([]);
-    useEffect(() => {
-        axios.get('https://swapi.co/api/people/')
-        .then(response => {
-          // console.log(response)
-          return setMovie(response.data.results)
-        })
-        .catch(error => {
-          console.log(error)
-        })
-      }, [])
 
-return(
-<div>
-    {movie.map(movie => {
+    const [character, setCharacter] = useState([]);
+
+useEffect(() => {
+
+  axios 
+    .get('https://swapi.co/api/people/')
+    .then(response => setCharacter(response.data.results))
+    .catch(error => console.log(error))
+}, [])
+
+console.log("character data", character);
+
     return (
-        <fdiv>
-            {/* <Badge>{movie.release_date}</Badge>
-            <h1>{movie.title}</h1>
-            <div>
-            <h2>Directed by {movie.director}</h2>
-            <p>{movie.opening_crawl}</p>
-            <StarWarsData  characterUrl = {movie.characters} />
-            </div> */}
-        </fdiv>
-        )}
-    )}
-</div>
-)}
+        character.map(characters => {
+
+            return (  
+                <StarWarsData
+                    name={characters.name}
+                    height={characters.height}
+                    mass={characters.mass}
+                    hair_color={characters.hair_color}
+                    skin_color={characters.skin_color}
+                    eye_color={characters.eye_color}
+                    birth_year={characters.birth_year}
+                    gender={characters.gender}
+                />  
+
+            )
+        }    
+    )
+)}   
 
 export default StarWarsCard;

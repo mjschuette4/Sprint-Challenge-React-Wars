@@ -14,7 +14,9 @@ const App = () => {
 
   return (
     <div className="App">
+      <div className="CC">
       <StarWarsCard/>
+      </div>
     </div>
   );
 }
