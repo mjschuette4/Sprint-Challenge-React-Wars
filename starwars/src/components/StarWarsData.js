@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import {
+    Button, Modal, ModalHeader, ModalBody, ModalFooter
+} from 'reactstrap';
 
 const StarWarsData = props => {
 
-const
-starWarsCharcters = [];
-characterData = [];
+const starWarsCharacters = [];
+const characterData = [];
 
 props.characterUrl.map(characters => {
     starWarsCharacters.push(characters);
@@ -23,6 +25,22 @@ useEffect(() => {
         });
     })
 }, []);
+
+return (
+
+    <div >
+        {characterData.forEach(character => {
+
+            console.log(character)
+
+            return(<div> 
+                 
+            </div>)
+    })}
+
+    </div >
+
+)
 }
 
 export default StarWarsData;
