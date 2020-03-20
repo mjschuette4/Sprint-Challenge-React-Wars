@@ -1,10 +1,5 @@
 import React from 'react';
-import { Card, CardTitle, CardText, CardImg } from 'reactstrap';
-import styled from 'styled-components';
-
-const fdiv = styled.div `
-margin: 5%;
-`
+import { Card, CardTitle, CardText, Button } from 'reactstrap';
 
 const StarWarsData = (props) => {
   return (
@@ -25,6 +20,7 @@ const StarWarsData = (props) => {
           <br></br>
           <CardText>Gender: {props.gender}</CardText>
           <br></br>
+          <Button color="primary" size="lg" onClick={() => alert("GENERAL KENOBI")}>Hello there!</Button>
         </Card>
   );
 };
